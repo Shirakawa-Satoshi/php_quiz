@@ -12,25 +12,49 @@ class DetailViewController: UIViewController {
 
     var quiz: QuizInfo!
     
+    
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
-//    @IBOutlet weak var back: UIButton!
+    @IBOutlet weak var resultImage: UIImageView!
+    //    @IBOutlet weak var back: UIButton!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        titleLabel.text = quiz.title
+        contentLabel.text = quiz.content
+        
+        
+        
+        // Do any additional setup after loading the view.
+    }
     
   
     @IBAction func yesBtn(_ sender: Any) {
         if(quiz.answer == 1){
             resultLabel.text = "正解でーーーす"
+            let correctImage = UIImage(named: "correct")
+            self.resultImage.image = correctImage
         }else if(quiz.answer == 0){
             resultLabel.text = "外れでーーーす"
+            let incorrectImage = UIImage(named: "incorrect")
+            self.resultImage.image = incorrectImage
         }
     }
     
     @IBAction func noBtn(_ sender: Any) {
         if(quiz.answer == 0){
             resultLabel.text = "正解でーーーす"
+            let correctImage = UIImage(named: "correct")
+            self.resultImage.image = correctImage
+            
         }else if(quiz.answer == 1){
             resultLabel.text = "外れでーーーす"
+            let incorrectImage = UIImage(named: "incorrect")
+            self.resultImage.image = incorrectImage
+            
         }
     }
     
@@ -40,15 +64,7 @@ class DetailViewController: UIViewController {
    
     
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        titleLabel.text = quiz.title
-        contentLabel.text = quiz.content
-        resultLabel.text = String(quiz.answer)
-       
-        // Do any additional setup after loading the view.
-    }
+
     
     
     
