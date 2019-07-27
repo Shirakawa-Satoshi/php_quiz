@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var resultImage: UIImageView!
     //    @IBOutlet weak var back: UIButton!
     
@@ -25,9 +26,6 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         titleLabel.text = quiz.title
         contentLabel.text = quiz.content
-        
-        
-        
         // Do any additional setup after loading the view.
     }
     
@@ -37,10 +35,13 @@ class DetailViewController: UIViewController {
             resultLabel.text = "正解でーーーす"
             let correctImage = UIImage(named: "correct")
             self.resultImage.image = correctImage
+            descriptionLabel.text = ""
         }else if(quiz.answer == 0){
             resultLabel.text = "外れでーーーす"
             let incorrectImage = UIImage(named: "incorrect")
             self.resultImage.image = incorrectImage
+            descriptionLabel.text = quiz.description
+            descriptionLabel.sizeToFit()
         }
     }
     
@@ -49,11 +50,14 @@ class DetailViewController: UIViewController {
             resultLabel.text = "正解でーーーす"
             let correctImage = UIImage(named: "correct")
             self.resultImage.image = correctImage
+            descriptionLabel.text = ""
             
         }else if(quiz.answer == 1){
             resultLabel.text = "外れでーーーす"
             let incorrectImage = UIImage(named: "incorrect")
             self.resultImage.image = incorrectImage
+            descriptionLabel.text = quiz.description
+            descriptionLabel.sizeToFit()
             
         }
     }
